@@ -32,19 +32,12 @@ public class LinkController {
         return errors;
     }
 
-//    @Autowired
-//    public LinkController(LinkRepository linkRepository) {
-//        this.linkRepository = linkRepository;
-//    }
-
     @GetMapping("/link/{link_id}")
     public ResponseEntity<Object> getLink(
             @PathVariable("link_id") UUID linkId
     ) {
 
-//        System.out.println(linkId);
-
-         List<LinkEnity> foundLink = linkRepository.findByKeyLinkId(linkId);
+         List<LinkEnity> foundLink = linkRepository.findByLinkId(linkId);
 
         if (!foundLink.isEmpty()) {
 
